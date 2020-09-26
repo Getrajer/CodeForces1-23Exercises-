@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BearAndBigBrother
+namespace WrongSubstraction
 {
     class Program
     {
@@ -8,12 +8,11 @@ namespace BearAndBigBrother
         {
             string input = Console.ReadLine();
 
+            int number = 0;
+            int d = 0;
 
-            int l = 0;
-            int b = 0;
-
-            int c = 0;
             string txt = "";
+            int c = 0;
 
             for(int i = 0; i < input.Length; i++)
             {
@@ -25,28 +24,28 @@ namespace BearAndBigBrother
                 {
                     if(c == 0)
                     {
-                        l = Convert.ToInt32(txt);
-                        c++;
+                        number = Convert.ToInt32(txt);
                         txt = "";
                     }
                 }
+            }
 
-                if(i == input.Length - 1)
+            d = Convert.ToInt32(txt);
+
+
+            for(int i = 0; i < d; i++)
+            {
+                if(number % 10 != 0)
                 {
-                    b = Convert.ToInt32(txt);
+                    number -= 1;
+                }
+                else
+                {
+                    number = number / 10;
                 }
             }
 
-            int counter = 0;
-
-            do
-            {
-                l = l * 3;
-                b = b * 2;
-                counter++;
-            } while (l <= b);
-
-            Console.WriteLine(counter);
+            Console.WriteLine(number);
 
         }
     }
